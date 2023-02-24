@@ -104,7 +104,11 @@ As we set $\boldsymbol{W^{(2)}}=0$, $\frac{\partial l}{\partial \boldsymbol{u}}=
 
 As the gradient of $\boldsymbol{W^{(2)},W^{(1)},b^{(1)}}$ all equals to zero or zero vectors, if we perform SGD, nothing will be added to the parameters we aiming to learn , which are $\boldsymbol{W^{(2)},W^{(1)},b^{(1)}}$.
 
+### 2.3
 
+$a=\boldsymbol{W^{(2)}u}+\boldsymbol{b^{(2)}}=\boldsymbol{W^{(2)}(W^{(1)}x+b^{(1)})}+\boldsymbol{b^{(2)}}=\boldsymbol{W^{(2)}W^{(1)}x+}+\boldsymbol{W^{(2)}b^{(1)}+b^{(2)}}$
+
+$\boldsymbol{U=W^{(2)}W^{(1)}, v=W^{(2)}b^{(1)}+b^{(2)}}$
 
 
 
