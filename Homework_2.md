@@ -63,6 +63,8 @@ $h(x;w)=E_{y\sim p(y|x;w)}t(y)=\lambda=e^{w^Tx}$
 ## Problem 2
 
 ### 2.1
+
+#### 1
 we use $\boldsymbol{y} \in \mathbf{R}^K$
 
 $\frac{\partial l}{\partial \boldsymbol{a}}=\frac{\partial l}{\partial \boldsymbol{z}}*\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{a}}=\frac{\partial -ln(\boldsymbol{z}^T\boldsymbol{y})}{\partial \boldsymbol{z}}*\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{a}}=-\frac{1}{\boldsymbol{z}^T\boldsymbol{y}}*\boldsymbol{y}*\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{a}}$
@@ -76,6 +78,27 @@ $\frac{\partial l}{\partial \boldsymbol{a}}=\frac{\partial l}{\partial \boldsymb
  $\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{a}}=\boldsymbol{z} \circ \boldsymbol{1-z}=[z_1(1-z_1),z_2(1-z_2),...,z_k(1-z_k)]^T$, $\circ$ means pointwise multiply,$\boldsymbol{1}$ means $[1,1,...,1]^T$
 
 $\frac{\partial l}{\partial \boldsymbol{a}}=-\frac{1}{\boldsymbol{z}^T\boldsymbol{y}}*\boldsymbol{y}*[z_1(1-z_1),z_2(1-z_2),...,z_k(1-z_k)]^T=-(1-z_y)=\boldsymbol{1-z^Ty}$
+
+
+#### 2
+$\frac{\partial l}{\partial \boldsymbol{W^{(2)}}}=\frac{\partial l}{\partial \boldsymbol{a}}*\frac{\partial \boldsymbol{a}}{\partial \boldsymbol{W^{(2)}}}=\frac{\partial l}{\partial \boldsymbol{a}}*\boldsymbol{h^T}$
+
+
+$\frac{\partial l}{\partial \boldsymbol{b^{(2)}}}=\frac{\partial l}{\partial \boldsymbol{a}}*\frac{\partial \boldsymbol{a}}{\partial \boldsymbol{b^{(2)}}}=\frac{\partial l}{\partial \boldsymbol{a}}$
+
+
+#### 3
+$\frac{\partial l}{\partial \boldsymbol{u}}=\frac{\partial l}{\partial \boldsymbol{a}} *\frac{\partial \boldsymbol{a}}{\partial \boldsymbol{u}}=\frac{\partial l}{\partial \boldsymbol{a}} *(\boldsymbol{W^{{2}}*H(u)})^T$
+
+#### 4
+
+$\frac{\partial l}{\partial \boldsymbol{W^{(1)}}}=\frac{\partial l}{\partial \boldsymbol{u}}*\frac{\partial \boldsymbol{u}}{\partial \boldsymbol{W^{(1)}}}=\frac{\partial l}{\partial \boldsymbol{u}}*\boldsymbol{x^T}$
+
+
+$\frac{\partial l}{\partial \boldsymbol{b^{(1)}}}=\frac{\partial l}{\partial \boldsymbol{u}}*\frac{\partial \boldsymbol{u}}{\partial \boldsymbol{b^{(1)}}}=\frac{\partial l}{\partial \boldsymbol{u}}$
+
+
+
 
 
 ### 2.2
