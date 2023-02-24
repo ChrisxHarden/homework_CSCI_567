@@ -99,9 +99,12 @@ $\frac{\partial l}{\partial \boldsymbol{b^{(1)}}}=\frac{\partial l}{\partial \bo
 
 
 
-
-
 ### 2.2
+As we set $\boldsymbol{W^{(2)}}=0$, $\frac{\partial l}{\partial \boldsymbol{u}}=\frac{\partial l}{\partial \boldsymbol{a}} *(\boldsymbol{W^{{2}}*H(u)})^T=\boldsymbol{0}$,Thus $\frac{\partial l}{\partial \boldsymbol{W^{(1)}}}=\frac{\partial l}{\partial \boldsymbol{u}}*\boldsymbol{x^T}=\boldsymbol{0}$, $\frac{\partial l}{\partial \boldsymbol{b^{(1)}}}=\frac{\partial l}{\partial \boldsymbol{u}}=\boldsymbol{0}$
+
+As the gradient of $\boldsymbol{W^{(2)},W^{(1)},b^{(1)}}$ all equals to zero or zero vectors, if we perform SGD, nothing will be added to the parameters we aiming to learn , which are $\boldsymbol{W^{(2)},W^{(1)},b^{(1)}}$.
+
+
 
 
 
