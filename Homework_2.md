@@ -111,7 +111,7 @@ $a=\boldsymbol{W^{(2)}u}+\boldsymbol{b^{(2)}}=\boldsymbol{W^{(2)}(W^{(1)}x+b^{(1
 $\boldsymbol{U=W^{(2)}W^{(1)}, v=W^{(2)}b^{(1)}+b^{(2)}}$
 
 
-
+--------------------
 
 ## Problem 3
 ### 3.1
@@ -161,7 +161,27 @@ Use the induction we proved in (1), $w_{t+1}=\Sigma_{i=1}^n(1-\alpha n \lambda\b
 $\beta_i^{(t+1)}=(1-\alpha n \lambda\beta_i^{(t)}- \alpha *(\Sigma_{j=1}^n(\beta_j^{(t)}\phi(x_i)^T\phi(x_j))-y_i))$
 
 
+-----------------
+## Problem 4
+### 4.1
+$w^*=\argmin_{w\in R^D}\Sigma_{i=1}^N -y_i\boldsymbol{w^Tx_i} +\lambda(\boldsymbol{w^Tw}-1)=\argmin_{w\in R^D}F(w)$
 
+We find stationary point:
+
+$\frac{\partial F(w)}{\partial w}=2\lambda \boldsymbol{w}-\Sigma_{i=1}^Ny_i\boldsymbol{x_i}=0$
+
+$w^*=\frac{1}{2\lambda}\Sigma_{i=1}^Ny_i\boldsymbol{x_i}=\frac{1}{2\lambda}(\Sigma_{i:x_i\in C_1}x_i-\Sigma_{j:x_j\in C_{-1}}x_j)$
+
+
+### 4.2
+
+$||w^*||^2=||\frac{1}{2\lambda}(\Sigma_{i:x_i\in C_1}x_i-\Sigma_{j:x_j\in C_{-1}}x_j)||^2=1$
+
+$\lambda=\frac{||\Sigma_{i:x_i\in C_1}x_i-\Sigma_{j:x_j\in C_{-1}}x_j||}{2}$
+
+### 4.3
+
+We can't use SGD since for each iteration , even if we pick one sample, we have to calculate the whole datapoints for the gradient and the gradient is same for all datapoints.
 
 
 
