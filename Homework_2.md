@@ -113,6 +113,56 @@ $\boldsymbol{U=W^{(2)}W^{(1)}, v=W^{(2)}b^{(1)}+b^{(2)}}$
 
 
 
+## Problem 3
+### 3.1
+$w_{t+1}=w_{t}-\alpha*\frac{\partial L(w)}{\partial w}=w_{t}-\alpha * \Sigma_{i=1}^n(\phi(x_i)\phi(x_i)^Tw-\phi(x_i)y_i+\lambda w)=w_{t}-\alpha * (\Phi^T\Phi w-\Phi^T \boldsymbol{y}+\lambda w)$
+
+
+$\Phi=[\phi(x_1)^T,\phi(x_2)^T,...,\phi(x_n)^T]^T,\Phi \in \boldsymbol{R}^{N*M}$
+
+
+$\boldsymbol{y}=[y_1^T,y_2^T,...,y_n^T]^T,\boldsymbol{y} \in \boldsymbol{R}^{N}$
+
+### 3.2
+With $M$ too large and we are conducting gradient descent on all $N$ samples, the computation cost will be too large or even infeasible.
+
+
+### 3.3
+#### (1):
+$w_0=\boldsymbol{0}$
+
+We suppose if $w_t$ is a linear comination of $\phi(x_i)$, then $w_{t+1}$ will also be a linear combination of $\phi(x_i)$
+
+$w_1=w_0+\alpha*\Sigma_{i=1}^n\phi(x_i)y_i=\alpha*\Sigma_{i=1}^n\phi(x_i)y_i=\Sigma_{i=1}^n\alpha y_i \phi(x_i)=\Sigma_{i=1}^n \beta_i^{(1)}\phi(x_i)$
+
+
+$w_2=w_1-\alpha * \Sigma_{i=1}^n(\phi(x_i)\phi(x_i)^Tw_1-\phi(x_i)y_i+\lambda w_1)=(1-\alpha n\lambda)w_1-\alpha * \Sigma_{i=1}^n(\phi(x_i)\Sigma_{j=1}^n\beta_j^{(1)}\phi(x_i)^T\phi(x_j)-\phi(x_i)y_i)=(1-\alpha n\lambda)w_1-\Sigma_{i=1}^n\alpha *(\Sigma_{j=1}^n(\beta_j^{(1)}\phi(x_i)^T\phi(x_j))-y_i)*\phi(x_i)=\Sigma_{i=1}^n(1-\alpha n \lambda\beta_i^{(1)}- \alpha *(\Sigma_{j=1}^n(\beta_j^{(1)}\phi(x_i)^T\phi(x_j))-y_i))*\phi(x_i)$
+
+As $\Sigma_{j=1}^n\beta_j^{(1)}\phi(x_i)^T\phi(x_j), y_i$ are scalars, $(1-\alpha n \lambda\beta_i^{(1)}- \alpha *(\Sigma_{j=1}^n(\beta_j^{(1)}\phi(x_i)^T\phi(x_j))-y_i))$ will also be scalar, which is $\beta_i^{(2)}$
+
+$w_2=\Sigma_{i=1}^n \beta_i^{(2)}\phi(x_i)$
+
+So the result works from $w_1$ to $w_2$
+
+Now we suppose $w_t=\Sigma_{i=1}^n \beta_i^{(t)}\phi(x_i)$
+
+$w_{t+1}=w_t-\alpha * \Sigma_{i=1}^n(\phi(x_i)\phi(x_i)^Tw_t-\phi(x_i)y_i+\lambda w_t)=(1-\alpha n\lambda)w_t-\alpha * \Sigma_{i=1}^n(\phi(x_i)\Sigma_{j=1}^n\beta_j^{(t)}\phi(x_i)^T\phi(x_j)-\phi(x_i)y_i)=(1-\alpha n\lambda)w_t-\Sigma_{i=1}^n\alpha *(\Sigma_{j=1}^n(\beta_j^{(t)}\phi(x_i)^T\phi(x_j))-y_i)*\phi(x_i)=\Sigma_{i=1}^n(1-\alpha n \lambda\beta_i^{(t)}- \alpha *(\Sigma_{j=1}^n(\beta_j^{(t)}\phi(x_i)^T\phi(x_j))-y_i))*\phi(x_i)$
+
+As $\Sigma_{j=1}^n\beta_j^{(t)}\phi(x_i)^T\phi(x_j), y_i$ are scalars, $(1-\alpha n \lambda\beta_i^{(t)}- \alpha *(\Sigma_{j=1}^n(\beta_j^{(t)}\phi(x_i)^T\phi(x_j))-y_i))$ will also be scalar, which is $\beta_i^{(t+1)}$
+
+$w_{t+1}=\Sigma_{i=1}^n \beta_i^{(t+1)}\phi(x_i)$
+
+With induction proved, we can now assume as long as $w_t$ is a linear comination of $\phi(x_i)$, then $w_{t+1}$ will also be a linear combination of $\phi(x_i)$. With $w_0=\boldsymbol{0}$, which is $\Sigma_{i=1}^n 0*\phi(x_i)$, a linear comination of $\phi(x_i)$, all $w_t$ will be linear combination of $\phi(x_i)$
+
+
+#### (2)
+Use the induction we proved in (1), $w_{t+1}=\Sigma_{i=1}^n(1-\alpha n \lambda\beta_i^{(t)}- \alpha *(\Sigma_{j=1}^n(\beta_j^{(t)}\phi(x_i)^T\phi(x_j))-y_i))*\phi(x_i)$
+
+$\beta_i^{(t+1)}=(1-\alpha n \lambda\beta_i^{(t)}- \alpha *(\Sigma_{j=1}^n(\beta_j^{(t)}\phi(x_i)^T\phi(x_j))-y_i))$
+
+
+
+
 
 
 
