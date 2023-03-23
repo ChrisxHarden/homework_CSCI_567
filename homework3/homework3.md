@@ -39,4 +39,17 @@ Considering all metrics, T2 is a better split for it has less conditional entrop
 -----------------------------------------------
 # Problem 2
 ### Problem 2.1
+As $\epsilon _t$ is fixed , we set $g(\beta _t)=\epsilon _t(e^{\beta _t}-e^{-\beta _t})+e^{-\beta _t}$ and find the optimal $\beta _t$ by setting the gradient of $g(\beta _t)$ equals 0.
+
+
+$g'(\beta _t)=\epsilon _t(e^{\beta _t}+e^{-\beta _t})-e^{-\beta _t}=0$
+$\epsilon _t*e^{\beta _t}=e^{-\beta _t}*(1-\epsilon _t)$
+$e^{\beta _t}=e^{-\beta _t}*(\frac{1}{\epsilon _t}-1)$
+$\beta_t=-\beta_t+ln(\frac{1}{\epsilon _t}-1)$
+$\beta_t=\frac{1}{2}*ln(\frac{1-\epsilon _t}{\epsilon _t})$
+
+
+### Problem 2.2
+
+
 
