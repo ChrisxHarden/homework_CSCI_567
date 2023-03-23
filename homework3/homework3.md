@@ -24,4 +24,14 @@
 
 ### Problem 1.2:
 1. Conditional Entropy:
-2. Weighted average of Gini-impurity
+   1. T1:$\frac{200}{400}*0.56+\frac{200}{400}*0.56=0.56$
+   2. T2:$\frac{100}{400}*0+\frac{300}{400}*0.64=0.48$
+2. Weighted average of Gini-impurity:
+   1. T1:$\frac{200}{400}*0.38+\frac{200}{400}*0.38=0.38$
+   2. T2:$\frac{100}{400}*0+\frac{300}{400}*0.44=0.33$
+3. Weighted average of classification error:
+   1. T1:$\frac{200}{400}*0.25+\frac{200}{400}*0.25=0.25$
+   2. T2:$\frac{100}{400}*0+\frac{300}{400}*0.33=0.25$
+
+Considering all metrics, T2 is a better split for it has less conditional entropy and weighted average of gini-impurity.  
+
