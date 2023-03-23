@@ -33,5 +33,10 @@
    1. T1:$\frac{200}{400}*0.25+\frac{200}{400}*0.25=0.25$
    2. T2:$\frac{100}{400}*0+\frac{300}{400}*0.33=0.25$
 
-Considering all metrics, T2 is a better split for it has less conditional entropy and weighted average of gini-impurity.  
+Considering all metrics, T2 is a better split for it has less conditional entropy and weighted average of gini-impurity. 
+
+
+-----------------------------------------------
+# Problem 2
+### Problem 2.1
 
