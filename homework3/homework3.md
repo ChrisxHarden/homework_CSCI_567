@@ -50,6 +50,17 @@ $\beta_t=\frac{1}{2}*ln(\frac{1-\epsilon _t}{\epsilon _t})$
 
 
 ### Problem 2.2
+From the algorithm, we learn that $\Sigma _{n:h_t(x_n)\neq y_n} D_{t+1}(n)+\Sigma _{n:h_t(x_n)= y_n} D_{t+1}(n)=1=\Sigma _{n:h_t(x_n)\neq y_n} D_{t}(n)+\Sigma _{n:h_t(x_n)= y_n} D_{t}(n)$
+
+$\Sigma _{n:h_t(x_n)\neq y_n} D_{t+1}(n)=\Sigma _{n:h_t(x_n)\neq y_n} D_{t}(n)*e^{\beta _t}=\Sigma _{n:h_t(x_n)\neq y_n} D_{t}(n)*e^{\frac{1}{2}*ln(\frac{1-\epsilon _t}{\epsilon _t})}=(\frac{1-\epsilon _t}{\epsilon _t})^{\frac{1}{2}}*\Sigma _{n:h_t(x_n)\neq y_n} D_{t}(n)=(\frac{1-\epsilon _t}{\epsilon _t})^{\frac{1}{2}}*\epsilon _t=\sqrt{(1-\epsilon _t)*\epsilon _t}$
 
 
+$\Sigma _{n:h_t(x_n)= y_n} D_{t+1}(n)=\Sigma _{n:h_t(x_n)= y_n} D_{t}(n)*e^{-\beta _t}=\Sigma _{n:h_t(x_n)= y_n} D_{t}(n)*e^{-\frac{1}{2}*ln(\frac{1-\epsilon _t}{\epsilon _t})}=(\frac{1-\epsilon _t}{\epsilon _t})^{-\frac{1}{2}}*\Sigma _{n:h_t(x_n)= y_n} D_{t}(n)=(\frac{\epsilon _t}{1-\epsilon _t})^{\frac{1}{2}}*(1-\epsilon _t)=\sqrt{(1-\epsilon _t)*\epsilon _t}=\Sigma _{n:h_t(x_n)\neq y_n} D_{t+1}(n)=1-\Sigma _{n:h_t(x_n)\neq y_n} D_{t+1}(n)$
+
+So we can prove that $\Sigma _{n:h_t(x_n)\neq y_n} D_{t+1}(n)=\frac{1}{2}$
+
+-------------------------------
+
+## Problem 3
+### Problem 3.1
 
