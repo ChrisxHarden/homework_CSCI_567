@@ -92,3 +92,14 @@ For $\Sigma _{k=1}^Kq_kb_k$, we can see that as an expectation of $b$ , and thus
 For $\Sigma _{k=1}^Kq_klnq_k$, we can see that as the entropy of $q$, and $\Sigma _{k=1}^Kq_klnq_k\geq 0$, it equals when there's one and only one $q_j=1$, and all other $q_i=0,\forall i\neq j$.
 
 Then we can find out when $\Sigma _{k=1}^Kq_kb_k$ gets its max value, $\Sigma _{k=1}^Kq_klnq_k$gets its min value. And then $\Sigma _{k=1}^K(q_kb_k-q_klnq_k)$ can reach its max value. Thus the solution to the problem is $q_{maxb_{id}}=1;q_i=0, \forall i\neq maxb_{id}$. In other words, if $b_{maxb_{id}}$ is the max value of all $b_i$, we set $q_{maxb_{id}}=1$, and all other $q_i=0$.
+
+
+--------------------------------------
+## Porblem 4
+### Problem 4.1
+1. For $\omega_k$, as $\Sigma_n \Sigma_k \gamma_{nk}lnN(x_n|\mu _k, \Sigma_k)$ doesn't include $\omega_k$，we only need to consider $\Sigma_n \Sigma_k \gamma_{nk}ln\omega _k$
+
+   $\Sigma_n \Sigma_k \gamma_{nk}ln\omega _k=\Sigma_k \Sigma_n \gamma_{nk}ln\omega _k=\Sigma_k ln\omega_k \Sigma_n \gamma_{nk}$
+
+   By using result from 3.1, since$\Sigma_n \gamma_{nk}>0$ we know that $\omega_k=\frac{\Sigma_n \gamma_{nk}}{\Sigma_k\Sigma_n \gamma_{nk}}=\frac{\Sigma_n \gamma_{nk}}{\Sigma_n\Sigma_k \gamma_{nk}}=\frac{\Sigma_n \gamma_{nk}}{\Sigma_n}=\frac{\Sigma_n \gamma_{nk}}{N}$
+2. 
