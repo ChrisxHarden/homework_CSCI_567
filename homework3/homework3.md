@@ -134,3 +134,7 @@ $\Sigma_k q_n[lnp(x_n,z_n;\theta^{(t)})]-q_nlnq_n=\Sigma_k q_n[lnp(x_n;\theta^{(
 Since $lnp(x_n;\theta^{(t)})$ is a value as $\theta^{(t)}$ is fixed, so we only need to maxmize $\Sigma_k q_nlnp(z_n|x_n,\theta^{(t)})-q_nlnq_n$. By using the result from 3.2, we can learn that $q_n=\frac{p(z_n|x_n,\theta^{(t)})}{\Sigma_k p(z_n|x_n,\theta^{(t)})}=p(z_n|x_n,\theta^{(t)})$
 
 ### Problem 4.3
+To reduce GMM to K-means, we can set $\sigma_k=0, \forall k$;$\omega_k=\frac{\Sigma_n \gamma_{nk}}{N}$;$\mu_k=\frac{\Sigma_n\gamma_{nk}x_n}{\Sigma_n\gamma_{nk}}$
+
+
+$p(z_n=k|x_n)=I(k==\argmin_c||x_n-\mu_c||^2_2)$,$I$ is the indicator function. In other words, if $\mu_c$ is the closet center of all clusters' centers to $x_n$, $p(z_n=c|x_n)=1,$ otherwise, $0$
