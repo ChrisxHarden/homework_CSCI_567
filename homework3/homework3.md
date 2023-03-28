@@ -102,4 +102,5 @@ Then we can find out when $\Sigma _{k=1}^Kq_kb_k$ gets its max value, $\Sigma _{
    $\Sigma_n \Sigma_k \gamma_{nk}ln\omega _k=\Sigma_k \Sigma_n \gamma_{nk}ln\omega _k=\Sigma_k ln\omega_k \Sigma_n \gamma_{nk}$
 
    By using result from 3.1, since$\Sigma_n \gamma_{nk}>0$ we know that $\omega_k=\frac{\Sigma_n \gamma_{nk}}{\Sigma_k\Sigma_n \gamma_{nk}}=\frac{\Sigma_n \gamma_{nk}}{\Sigma_n\Sigma_k \gamma_{nk}}=\frac{\Sigma_n \gamma_{nk}}{\Sigma_n}=\frac{\Sigma_n \gamma_{nk}}{N}$
-2. 
+2. For $\mu_k, \Sigma_k$,$\Sigma_k N(x_n|\mu_km,\Sigma_k)=1$, So we can assume it as the $q_k$ in 3.1, again, we can use the result from 3.1. 
+      $\Sigma_n \Sigma_k \gamma_{nk}lnN(x_n|\mu _k, \Sigma_k)=$
