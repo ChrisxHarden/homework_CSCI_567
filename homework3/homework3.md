@@ -128,3 +128,9 @@ Thus $q_k=\frac{e^{b_k}}{\Sigma_{k=1}^Ke^{b_k}}$
    Thus $\Sigma_k=\frac{\Sigma_n\gamma_{nk}(x_n-\mu_k)(x_n-\mu_k)^T}{\Sigma_n\gamma_{nk}}$
 
 ### Problem 4.2
+The equation can be written as:
+$\Sigma_k q_n[lnp(x_n,z_n;\theta^{(t)})]-q_nlnq_n=\Sigma_k q_n[lnp(x_n;\theta^{(t)})+lnp(z_n|x_n,\theta^{(t)})]-q_nlnq_n$
+
+Since $lnp(x_n;\theta^{(t)})$ is a value as $\theta^{(t)}$ is fixed, so we only need to maxmize $\Sigma_k q_nlnp(z_n|x_n,\theta^{(t)})-q_nlnq_n$. By using the result from 3.2, we can learn that $q_n=\frac{p(z_n|x_n,\theta^{(t)})}{\Sigma_k p(z_n|x_n,\theta^{(t)})}=p(z_n|x_n,\theta^{(t)})$
+
+### Problem 4.3
