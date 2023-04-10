@@ -85,13 +85,26 @@ Thus $q_k=\frac{a_k}{\Sigma_{k=1}^Ka_k}$
 
 
 ### Problem 3.2
-$\Sigma _{k=1}^K(q_kb_k-q_klnq_k)=\Sigma _{k=1}^Kq_kb_k-\Sigma _{k=1}^Kq_klnq_k$
+$\Sigma _{k=1}^K(q_kb_k-q_klnq_k);$
+We can try to solve this problem by using KKT conditions.
 
-For $\Sigma _{k=1}^Kq_kb_k$, we can see that as an expectation of $b$ , and thus $\Sigma _{k=1}^Kq_kb_k\leq b_{max_{id}}, b_{max_{id}}=max(b_1,b_2,...b_K)$. It equals when $q_{max_{id}}=1;q_i=0, \forall i\neq max_{id}$.
+We set $F(q)=\Sigma _{k=1}^K(q_klnq_k-q_kb_k)$, and we want to minimize it. We then set the largrangian of the problem as $L(q)=\Sigma _{k=1}^K(q_klnq_k-q_kb_k)+\Sigma _{k=1}^K(-\lambda _kq_k)+c_1(\Sigma _{k=1}^K q_k-1)+c_2(1-\Sigma _{k=1}^K q_k), s.t. \lambda_k \geq 0, c_1,c_2\geq 0$
 
-For $\Sigma _{k=1}^Kq_klnq_k$, we can see that as the entropy of $q$, and $\Sigma _{k=1}^Kq_klnq_k\geq 0$, it equals when there's one and only one $q_j=1$, and all other $q_i=0,\forall i\neq j$.
+Then by using KKT condtions, the stationary condition provides:
 
-Then we can find out when $\Sigma _{k=1}^Kq_kb_k$ gets its max value, $\Sigma _{k=1}^Kq_klnq_k$gets its min value. And then $\Sigma _{k=1}^K(q_kb_k-q_klnq_k)$ can reach its max value. Thus the solution to the problem is $q_{maxb_{id}}=1;q_i=0, \forall i\neq maxb_{id}$. In other words, if $b_{maxb_{id}}$ is the max value of all $b_i$, we set $q_{maxb_{id}}=1$, and all other $q_i=0$.
+$\frac{\partial L(q)}{\partial q_k}=lnq_k-b_k+1-\lambda_k+c_1-c_2=0$
+
+The complementary slackness provides:
+$-\lambda_kq_k=0,c_1(\Sigma _{k=1}^K q_k-1)=0,c_2(1-\Sigma _{k=1}^K q_k)=0$
+
+As $\Sigma _{k=1}^K q_k=1$, the value of $c_1,c_2$ won't affect the solution$.
+
+Then if $\lambda_k\neq0,q_k=0$, thus $ln q_k=-\infty$ and since  $\frac{\partial L(q)}{\partial q_k}=lnq_k-b_k+1-\lambda_k+c_1-c_2=0$ can't be satisfied.
+
+So $lnq_k=-1+c_1-c_2, \forall k\in{1,2,...,K}$,$\frac{q_1}{e^{b_1}}=\frac{q_2}{e^{b_2}}=...=\frac{q_K}{e^{b_K}}$
+
+Thus $q_k=\frac{e^{b_k}}{\Sigma_{k=1}^Ke^{b_k}}$
+
 
 
 --------------------------------------
@@ -102,5 +115,26 @@ Then we can find out when $\Sigma _{k=1}^Kq_kb_k$ gets its max value, $\Sigma _{
    $\Sigma_n \Sigma_k \gamma_{nk}ln\omega _k=\Sigma_k \Sigma_n \gamma_{nk}ln\omega _k=\Sigma_k ln\omega_k \Sigma_n \gamma_{nk}$
 
    By using result from 3.1, since$\Sigma_n \gamma_{nk}>0$ we know that $\omega_k=\frac{\Sigma_n \gamma_{nk}}{\Sigma_k\Sigma_n \gamma_{nk}}=\frac{\Sigma_n \gamma_{nk}}{\Sigma_n\Sigma_k \gamma_{nk}}=\frac{\Sigma_n \gamma_{nk}}{\Sigma_n}=\frac{\Sigma_n \gamma_{nk}}{N}$
-2. For $\mu_k, \Sigma_k$,$\Sigma_k N(x_n|\mu_km,\Sigma_k)=1$, So we can assume it as the $q_k$ in 3.1, again, we can use the result from 3.1. 
-      $\Sigma_n \Sigma_k \gamma_{nk}lnN(x_n|\mu _k, \Sigma_k)=$
+2. For $\mu_k, \Sigma_k$, as $\Sigma_n \Sigma_k \gamma_{nk}ln\omega _k$ doesn't include $\mu_k, \Sigma_k$, we only need to consider $\Sigma_n \Sigma_k \gamma_{nk}lnN(x_n|\mu _k, \Sigma_k)$. We find the solution of the problem by using KKT conditions in Lagrangian duality. And as the constraints have nothing to do with $\mu_k, \Sigma_k$, we don't need to consider them in stationary conditions.
+   
+   $\frac{\partial \Sigma_n \Sigma_k \gamma_{nk}lnN(x_n|\mu _k, \Sigma_k)}{\partial \mu_k}=\frac{\partial \Sigma_n \gamma_{nk}ln[\frac{\omega_k}{(\sqrt{2\pi}^D|\Sigma_k|^{\frac{1}{2}})}*exp(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))]}{\partial \mu_k}=\frac{\partial \Sigma_n \gamma_{nk}ln[\frac{\omega_k}{(\sqrt{2\pi}^D|\Sigma_k|^{\frac{1}{2}})}]+\gamma_{nk}ln[exp(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))]}{\partial \mu_k}=\frac{\partial \Sigma_n \gamma_{nk}(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))}{\partial \mu_k}=\Sigma_n\gamma_{nk}*(-\frac{1}{2}*(-2\Sigma_k^{-1}(x_n-\mu_k)))=\Sigma_n\gamma_{nk}*(\Sigma_k^{-1}(x_n-\mu_k))=0$
+
+   Thus $\mu_k=\frac{\Sigma_n\gamma_{nk}x_n}{\Sigma_n\gamma_{nk}}$
+
+   $\frac{\partial \Sigma_n \Sigma_k \gamma_{nk}lnN(x_n|\mu _k, \Sigma_k)}{\partial \Sigma_k}=\frac{\partial \Sigma_n \gamma_{nk}ln[\frac{\omega_k}{(\sqrt{2\pi}^D|\Sigma_k|^{\frac{1}{2}})}*exp(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))]}{\partial \Sigma_k}=\frac{\partial \Sigma_n \gamma_{nk}[ln\frac{\omega_k}{(\sqrt{2\pi}^D)}-ln|\Sigma_k|^{\frac{1}{2}}+(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))]}{\partial \Sigma_k}=\frac{\partial \Sigma_n \gamma_{nk}[-\frac{1}{2}ln|\Sigma_k|+(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))]}{\partial \Sigma_k}=0=\frac{\partial \Sigma_n \gamma_{nk}[-\frac{1}{2}ln|\Sigma_k|+(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))]}{\partial \Sigma_k^{-1}}*\frac{\partial \Sigma_k^{-1}}{\partial \Sigma_k}$
+
+   So, $\frac{\partial \Sigma_n \gamma_{nk}[-\frac{1}{2}ln|\Sigma_k|+(-\frac{1}{2}(x_n-\mu_k)^T\Sigma_k^{-1}(x_n-\mu_k))]}{\partial \Sigma_k^{-1}}=0=\Sigma_n\gamma_{nk}*\frac{1}{2}(\Sigma_k^T-(x_n-\mu_k)(x_n-\mu_k)^T)$
+
+   Thus $\Sigma_k=\frac{\Sigma_n\gamma_{nk}(x_n-\mu_k)(x_n-\mu_k)^T}{\Sigma_n\gamma_{nk}}$
+
+### Problem 4.2
+The equation can be written as:
+$\Sigma_k q_n[lnp(x_n,z_n;\theta^{(t)})]-q_nlnq_n=\Sigma_k q_n[lnp(x_n;\theta^{(t)})+lnp(z_n|x_n,\theta^{(t)})]-q_nlnq_n$
+
+Since $lnp(x_n;\theta^{(t)})$ is a value as $\theta^{(t)}$ is fixed, so we only need to maxmize $\Sigma_k q_nlnp(z_n|x_n,\theta^{(t)})-q_nlnq_n$. By using the result from 3.2, we can learn that $q_n=\frac{p(z_n|x_n,\theta^{(t)})}{\Sigma_k p(z_n|x_n,\theta^{(t)})}=p(z_n|x_n,\theta^{(t)})$
+
+### Problem 4.3
+To reduce GMM to K-means, we can set $\sigma_k=0, \forall k$;$\omega_k=\frac{\Sigma_n \gamma_{nk}}{N}$;$\mu_k=\frac{\Sigma_n\gamma_{nk}x_n}{\Sigma_n\gamma_{nk}}$
+
+
+$p(z_n=k|x_n)=I(k==\argmin_c||x_n-\mu_c||^2_2)$,$I$ is the indicator function. In other words, if $\mu_c$ is the closet center of all clusters' centers to $x_n$, $p(z_n=c|x_n)=1,$ otherwise, $0$
