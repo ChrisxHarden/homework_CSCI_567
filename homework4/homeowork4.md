@@ -3,10 +3,27 @@
 
 
 ## Problem 1
+### 1.1
+$P(Z_{T+1}=s|X_{1:T}=x_{1:T})$
+$=\Sigma_{s'} P(Z_{T+1}=s,Z_T=s'|X_{1:T}=x_{1:T})$
+$=\Sigma_{s'} P(Z_{T+1}=s|Z_T=s',X_{1:T}=x_{1:T})*P(Z_T=s'|X_{1:T}=x_{1:T})$
+$=\Sigma_{s'} \frac{P(Z_{T+1}=s|Z_T=s')*P(Z_T=s',X_{1:T}=x_{1:T})}{P(X_{1:T}=x_{1:T})}$
+$=\Sigma_{s'} \frac{a_{s',s}*\alpha_{s'}(T)}{\Sigma_{s''} P(X_{1:T}=x_{1:T},Z_T=s'')}$
+$=\Sigma_{s'} \frac{a_{s',s}*\alpha_{s'}(T)}{\Sigma_{s''} \alpha_{s''}(T)}$
+### 1.2
+$P(Z_{T+k}=s|X_{1:T}=x_{1:T})$
+$=\Sigma_{s'} P(Z_{T+k}=s,Z_{T+k-1}=s'|X_{1:T}=x_{1:T})$
+$=\Sigma_{s'} P(Z_{T+1}=s|Z_{T+k-1}=s',X_{1:T}=x_{1:T})*P(Z_{T+k-1}=s'|X_{1:T}=x_{1:T})$
+$=\Sigma_{s'} a_{s',s}*P(Z_{T+k-1}=s'|X_{1:T}=x_{1:T})$
+
+
+------------------------
+## Problem 2
 
 
 
 
+-------------------------------
 ## Problem 3
 ### 3.1
 The parameters to be learned are $\sigma_{cd},\mu_{cd} , \theta_c$
